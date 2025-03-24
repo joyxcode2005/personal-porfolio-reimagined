@@ -4,9 +4,13 @@ import { BiSolidToggleRight, BiToggleLeft } from "react-icons/bi";
 import { FaWifi } from "react-icons/fa6";
 import { IoIosSearch } from "react-icons/io";
 import { IoBatteryCharging } from "react-icons/io5";
+import { useToggle } from "../hooks/useToggle";
 
-const Topbar = () => {
+const Topbar: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
+  const { toggle } = useToggle();
+
+  console.log("This is the toogle , getting form useToggle hook: ", toggle);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,7 +44,10 @@ const Topbar = () => {
         </div>
         <FaWifi className="text-white font-bold cursor-pointer" />
         <IoIosSearch className="text-white font-bold cursor-pointer " />
-        <button className="flex flex-col cursor-pointer hover:bg-white hover:bg-opacity-50 px-2 rounded-lg">
+        <button
+          onClick={toggle}
+          className="flex flex-col cursor-pointer hover:bg-white hover:bg-opacity-50 px-2 rounded-lg"
+        >
           <BiToggleLeft className="text-white font-bold text-sm" />
           <BiSolidToggleRight className="text-white font-bold text-sm -mt-1" />
         </button>
