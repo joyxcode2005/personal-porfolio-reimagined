@@ -6,3 +6,11 @@ html, body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.dock-icon:hover ~ .dock-icon {
+  transform: translateX(10px);
+}
+
+.dock-icon:hover ~ .dock-icon:hover {
+  transform: translateX(0) scale(1.1);
+}
+
